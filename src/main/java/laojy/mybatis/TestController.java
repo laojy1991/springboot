@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import laojy.dynamicDS.DS;
 import laojy.dynamicDS.DataSourceType;
 import laojy.entity.User;
+import laojy.mapper.TeacherMapper;
 
 
 @RestController(value="mybatis")
@@ -19,6 +20,9 @@ public class TestController {
 	@Autowired
 	private UserMapper userMapper;
 	
+	@Autowired
+	private TeacherMapper teacherMapper;
+	
 	@RequestMapping("/query")
 	@ResponseBody
 	@DS(DataSourceType.SLAVE)
@@ -26,6 +30,13 @@ public class TestController {
 		return userMapper.findAll();
 	}
 	
+	
+	@RequestMapping("/queryAll")
+	@ResponseBody
+	@DS(DataSourceType.SLAVE)
+	public Object queryAll() {
+		return teacherMapper.queryAll();
+	}
 	
 	@RequestMapping(value="insert",method=RequestMethod.POST)
 	@ResponseBody

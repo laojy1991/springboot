@@ -1,5 +1,7 @@
 package laojy.entity;
 
+import java.util.List;
+
 public class Teacher {
     private Integer id;
 
@@ -8,8 +10,20 @@ public class Teacher {
     private String teacherAge;
 
     private Integer teacherNo;
+    
+    private List<Student> students;
+    
+    
 
-    public Integer getId() {
+    public List<Student> getStudents() {
+		return students;
+	}
+
+	public void setStudents(List<Student> students) {
+		this.students = students;
+	}
+
+	public Integer getId() {
         return id;
     }
 

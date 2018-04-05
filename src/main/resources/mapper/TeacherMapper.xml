@@ -6,7 +6,24 @@
     <result column="teacher_name" jdbcType="VARCHAR" property="teacherName" />
     <result column="teacher_age" jdbcType="VARCHAR" property="teacherAge" />
     <result column="teacher_no" jdbcType="INTEGER" property="teacherNo" />
+    <collection property="students" ofType="Student" select="getStu" column="teacher_no"></collection>
   </resultMap>
+  
+  <resultMap id="studentMap" type="laojy.entity.Student">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="student_name" jdbcType="VARCHAR" property="studentName" />
+    <result column="student_age" jdbcType="VARCHAR" property="studentAge" />
+    <result column="teacher_no" jdbcType="INTEGER" property="teacherNo" />
+  </resultMap>
+  
+  <select id="getStu" parameterType="laojy.entity.Student" resultMap="studentMap">
+  	select * from student where teacher_no=#{teacherNo,jdbcType=INTEGER}
+  </select>
+  
+  <select id="queryAll" resultMap="BaseResultMap">
+  	select * from teacher
+  </select>
+  
   <insert id="insert" parameterType="laojy.entity.Teacher">
     insert into teacher (id, teacher_name, teacher_age, 
       teacher_no)
