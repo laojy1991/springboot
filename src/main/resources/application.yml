@@ -41,4 +41,10 @@ datasource:
     url: jdbc:mysql://192.168.198.133:3306/laojy
     username: root
     password: laojy
+    
+    
+    
+mybatis:
+  typeAliasesPackage: laojy.entity
+  mapperLocations: classpath:mapper/*.xml
   

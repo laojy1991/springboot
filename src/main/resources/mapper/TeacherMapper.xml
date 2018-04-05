@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="laojy.mapper.TeacherMapper">
+  <resultMap id="BaseResultMap" type="laojy.entity.Teacher">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="teacher_name" jdbcType="VARCHAR" property="teacherName" />
+    <result column="teacher_age" jdbcType="VARCHAR" property="teacherAge" />
+    <result column="teacher_no" jdbcType="INTEGER" property="teacherNo" />
+  </resultMap>
+  <insert id="insert" parameterType="laojy.entity.Teacher">
+    insert into teacher (id, teacher_name, teacher_age, 
+      teacher_no)
+    values (#{id,jdbcType=INTEGER}, #{teacherName,jdbcType=VARCHAR}, #{teacherAge,jdbcType=VARCHAR}, 
+      #{teacherNo,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="laojy.entity.Teacher">
+    insert into teacher
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="teacherName != null">
+        teacher_name,
+      </if>
+      <if test="teacherAge != null">
+        teacher_age,
+      </if>
+      <if test="teacherNo != null">
+        teacher_no,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="teacherName != null">
+        #{teacherName,jdbcType=VARCHAR},
+      </if>
+      <if test="teacherAge != null">
+        #{teacherAge,jdbcType=VARCHAR},
+      </if>
+      <if test="teacherNo != null">
+        #{teacherNo,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>
