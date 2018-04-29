@@ -2,7 +2,6 @@ package laojy.idservice;
 
 import java.util.Date;
 
-import com.sun.org.apache.xpath.internal.operations.String;
 
 public abstract class AbstractSequenceFactory {
 	protected String lastType;
