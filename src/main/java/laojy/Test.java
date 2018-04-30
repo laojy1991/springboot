@@ -21,7 +21,10 @@ import java.util.regex.Pattern;
 public class Test {
 	public static void main(String[] args) throws IllegalArgumentException, IllegalAccessException, InterruptedException, ExecutionException {
 		//test();
+		long start = System.currentTimeMillis();
 		fill();
+		long end = System.currentTimeMillis();
+		System.out.println(end-start);
 	}
 	
 	
@@ -202,18 +205,21 @@ public class Test {
 		System.err.println(stringBuilder.toString());
 	}
 	private static void fill() {
-		String str="8点至9点：谭均盛  "
+		String str="7点8点：\n"+"8点至9点：谭均盛  "
 				+"9点至10点： 哈哈  "
 				+"10点至11点： 哈哈\n"
 				+"11点至12点： lasoj\n"
 				+"12至13点:\n"
 				+"13至14点： 刚刚\n"
 				+"14至15点： 刚刚\n"
-				+"15至16点： \n"
+				+"15至16点： dlsjf\n"
 				+"16至17点： 刚刚\n"
 				+"17至18点： 哈哈\n"
 				+"18至19点： 经济\n"
-				+"19--20点";
+				+"19滴20点：多少份几分"
+				+ "20点21点：额我发"
+				+ "21点22点：为";
+		//String str = "7-8";
 		/*String regex = "(\\d*[\\u4E00-\\u9FA5]*\\d*[\\u4E00-\\u9FA5]*)[:|：|\\s]?(\\D*)"
 				+ "(\\d*[\\u4E00-\\u9FA5]*\\d*[\\u4E00-\\u9FA5]*)[:|：|\\s]?(\\D*)"
 	            + "(\\d*[\\u4E00-\\u9FA5]*\\d*[\\u4E00-\\u9FA5]*)[:|：|\\s]?(\\D*)"
